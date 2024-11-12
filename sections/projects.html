@@ -3,22 +3,67 @@
     <div class="container">
         <h2 class="text-center text-primary mb-5">Projects</h2>
         <div class="row">
+            <!-- Human Activity Recognition Project -->
             <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="card">
                     <img src="images/project1.jpg" class="card-img-top" alt="Human Activity Recognition">
                     <div class="card-body">
-                        <h5 class="card-title">Human Activity Recognition</h5>
-                        <p class="card-text">Developed a fall detection system with Raspberry Pi and AWS email alerts.
+                        <h5 class="card-title">Human Activity Recognition (HAR)</h5>
+                        <p class="card-text">
+                            Developed a fall detection system with Raspberry Pi and AWS email alerts. The HAR system
+                            uses a Joint RGB-Pose-based algorithm to capture spatial and temporal features, enhancing
+                            activity recognition accuracy.
                         </p>
+                        <ul class="card-text">
+                            <li><strong>Data Collection and Preprocessing:</strong> Utilizes datasets (HMDB51, UCF50,
+                                KTH) and custom data for fall detection, standardizing videos to 640x480 resolution and
+                                maintaining key joints (shoulder, knee) in Pose-based videos.</li>
+                            <li><strong>Machine Learning Models:</strong>
+                                <ul>
+                                    <li><strong>ConvLSTM:</strong> Recognizes RGB-based activities using spatial and
+                                        temporal features.</li>
+                                    <li><strong>LRCN:</strong> Combines CNN and LSTM layers for efficient video
+                                        classification.</li>
+                                    <li><strong>Pose-based DNN:</strong> Uses Mediapipe-extracted pose key points to
+                                        classify actions.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Fall Detection and Notification:</strong> Integrates AWS IoT Core and SNS for
+                                real-time fall detection and notification via email alerts.</li>
+                        </ul>
+                        <a href="https://github.com/AmiRaGaL/Human-Activity-Recognition-using-RaspberryPI.git"
+                            target="_blank" class="btn btn-primary mt-3">View on GitHub</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Twitter Sentiment Analysis Project -->
             <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="card">
                     <img src="images/project2.jpg" class="card-img-top" alt="Twitter Sentiment Analysis">
                     <div class="card-body">
-                        <h5 class="card-title">Twitter Sentiment Analysis</h5>
-                        <p class="card-text">Built a model to analyze social media sentiment on brands and products.</p>
+                        <h5 class="card-title">Twitter Sentiment Analysis (TSA)</h5>
+                        <ul class="card-text">
+                            <li><strong>Objective:</strong> To classify Twitter data into positive and negative
+                                sentiments, helping gauge public opinion on social media.</li>
+                            <li><strong>Data Processing:</strong> Utilized a dataset of 1.6 million annotated tweets,
+                                applying techniques like tokenization, stop word removal, and lemmatization to prepare
+                                data for analysis.</li>
+                            <li><strong>Models Implemented:</strong>
+                                <ul>
+                                    <li>Traditional ML Models: Logistic Regression, SVM, Naive Bayes.</li>
+                                    <li>Deep Learning Models: LSTM for sequential dependencies in text data.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Performance Evaluation:</strong> Assessed each model based on accuracy,
+                                precision, recall, and F1-score, with deep learning models generally showing superior
+                                performance.</li>
+                            <li><strong>Real-time Inference:</strong> Built an interface for live sentiment prediction
+                                using a user-friendly tool, integrating machine learning models and an LLM for improved
+                                accuracy.</li>
+                        </ul>
+                        <a href="https://github.com/AmiRaGaL/Twitter-Sentiment-Anaysis.git" target="_blank"
+                            class="btn btn-primary mt-3">View on GitHub</a>
                     </div>
                 </div>
             </div>

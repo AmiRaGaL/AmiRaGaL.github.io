@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         emailjs.sendForm("service_7m8wxsf", "template_nt4twcq", this)
             .then(() => {
-                alert("Thank you! Your message has been sent.");
+                alert("✅ Message sent successfully!");
                 form.reset();
             }, (error) => {
-                alert("Failed to send message. Please try again later.");
+                alert("❌ Failed to send message. Please try again later.");
                 console.error("EmailJS Error:", error);
             });
     });

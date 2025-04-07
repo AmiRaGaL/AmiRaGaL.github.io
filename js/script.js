@@ -27,3 +27,19 @@ toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("dark-theme");
     toggleButton.textContent = document.body.classList.contains("dark-theme") ? "☀️" : "🌙";
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_7m8wxsf", "template_nt4twcq", this)
+            .then(() => {
+                alert("Thank you! Your message has been sent.");
+                form.reset();
+            }, (error) => {
+                alert("Failed to send message. Please try again later.");
+                console.error("EmailJS Error:", error);
+            });
+    });
+});

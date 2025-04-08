@@ -27,19 +27,41 @@ toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("dark-theme");
     toggleButton.textContent = document.body.classList.contains("dark-theme") ? "☀️" : "🌙";
 });
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contact-form");
 
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
+function initializeEmailForm() {
+    const form = document.getElementById("form");
+    if (!form) return;
 
-        emailjs.sendForm("service_7m8wxsf", "template_nt4twcq", this)
+    const btn = document.getElementById("button");
+    const defaultTimeInput = document.getElementById("default-time");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        btn.value = "Sending...";
+
+        // Set current time
+        defaultTimeInput.value = new Date().toLocaleString();
+
+        emailjs.sendForm("default_service", "template_nt4twcq", this)
             .then(() => {
-                alert("✅ Message sent successfully!");
+                btn.value = "Send Email";
+                alert("Email sent successfully!");
                 form.reset();
-            }, (error) => {
-                alert("❌ Failed to send message. Please try again later.");
-                console.error("EmailJS Error:", error);
+            }, (err) => {
+                btn.value = "Send Email";
+                alert("Failed to send email:\n" + JSON.stringify(err));
+                console.error(err);
             });
     });
+}
+
+// Run after dynamic sections are loaded
+document.addEventListener("DOMContentLoaded", () => {
+    // Wait until the contact section is inserted
+    const checkInterval = setInterval(() => {
+        if (document.getElementById("form")) {
+            initializeEmailForm();
+            clearInterval(checkInterval);
+        }
+    }, 300);
 });
